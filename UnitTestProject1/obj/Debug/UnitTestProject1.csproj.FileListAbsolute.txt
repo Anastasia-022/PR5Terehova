@@ -1,0 +1,2 @@
+C:\Users\peach\source\repos\Antipina_OlnineStickerStore\UnitTestProject1\obj\Debug\UnitTestProject1.csproj.AssemblyReference.cache
+C:\Users\peach\source\repos\Antipina_OlnineStickerStore\UnitTestProject1\obj\Debug\UnitTestProject1.csproj.CoreCompileInputs.cache

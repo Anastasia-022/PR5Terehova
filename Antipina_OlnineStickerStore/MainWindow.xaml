@@ -1,0 +1,51 @@
+﻿<Window x:Class="Antipina_OlnineStickerStore.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Antipina_OlnineStickerStore"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="500">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF0490B0"/>
+                <GradientStop Color="#FFC6818D" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="47.34"/>
+            <RowDefinition Height="47.34"/>
+            <RowDefinition Height="47.34"/>
+            <RowDefinition Height="47.34"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="83.333"/>
+            <ColumnDefinition Width="83.333"/>
+            <ColumnDefinition Width="83.333"/>
+            <ColumnDefinition Width="83.333"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="2" Grid.ColumnSpan="3" Text="Авторизация"  VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   FontSize="24" Height="37" Width="181" Name="txtBlockAuthorization" FontFamily="Arial Rounded MT Bold" Margin="10,0,0,0" Grid.Row="1"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="Login:" Name="txtBlockLogin" HorizontalAlignment="Center" 
+                   FontSize="22" VerticalAlignment="Center" FontFamily="Arial Black"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="Password:" Name="txtBlockPassword" HorizontalAlignment="Center" 
+                   FontSize="22" VerticalAlignment="Top" FontFamily="Arial Black"/>
+        <TextBox Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" Name="txtBoxLogin" VerticalAlignment="Center" TextBlock.FontSize="20"
+                 Height="29" Background="#FFC6818D" ></TextBox>
+        <PasswordBox Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" x:Name="passwordBoxPassword" VerticalAlignment="Center" TextBlock.FontSize="20"
+                 Height="29" Background="#FFC6818D" ></PasswordBox>
+        <Button Grid.Column="2" Name="btnAuthorization" Content="Авторизоваться" Click="btn_Authorization_Click" Grid.Row="4" 
+                VerticalAlignment="Center" Height="40" FontSize="20" HorizontalAlignment="Center" Grid.ColumnSpan="2" Background="#FF0490B0" FontFamily="Arial Rounded MT Bold">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+    </Grid>
+</Window>
+
+    

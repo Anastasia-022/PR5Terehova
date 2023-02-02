@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Delivery">
+    <Key>
+      <PropertyRef Name="ID_of_delivery" />
+    </Key>
+    <Property Name="ID_of_delivery" Type="Int32" Nullable="false" />
+    <Property Name="Type_of_delivery" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Name="Dilivery_time" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+    <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Order_Delivery" FromRole="Delivery" ToRole="Order" />
+    <NavigationProperty Name="Order1" Relationship="Model.FK_Order_Delivery1" FromRole="Delivery" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="ID_of_order" />
+      <PropertyRef Name="ID_of_order1" />
+    </Key>
+    <Property Name="ID_of_order" Type="Int32" Nullable="false" />
+    <Property Name="ID_of_user" Type="Int32" />
+    <Property Name="Type_of_payment" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Name="ID_of_delivery" Type="Int32" />
+    <Property Name="Order_date" Type="DateTime" Precision="0" />
+    <Property Name="Cost_of_order" Type="Int32" />
+    <Property Name="Order_status" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Delivery" Relationship="Self.FK_Order_Delivery" FromRole="Order" ToRole="Delivery" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Order_Users" FromRole="Order" ToRole="Users" />
+    <NavigationProperty Name="Order_product" Relationship="Self.FK_Order_product_Order" FromRole="Order" ToRole="Order_product" />
+    <Property Name="ID_of_order1" Type="Int32" Nullable="false" />
+    <Property Name="ID_of_user1" Type="Int32" />
+    <Property Name="Type_of_payment1" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Name="ID_of_delivery1" Type="Int32" />
+    <Property Name="Order_date1" Type="DateTime" Precision="0" />
+    <Property Name="Cost_of_order1" Type="Int32" />
+    <Property Name="Order_status1" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Delivery1" Relationship="Model.FK_Order_Delivery1" FromRole="Order" ToRole="Delivery" />
+    <NavigationProperty Name="Users1" Relationship="Model.FK_Order_Users1" FromRole="Order" ToRole="Users" />
+    <NavigationProperty Name="Order_product1" Relationship="Model.FK_Order_product_Order1" FromRole="Order" ToRole="Order_product" />
+  </EntityType>
+  <EntityType Name="Order_product">
+    <Key>
+      <PropertyRef Name="ID_of_ordered_product" />
+    </Key>
+    <Property Name="ID_of_ordered_product" Type="Int32" Nullable="false" />
+    <Property Name="ID_of_order" Type="Int32" />
+    <Property Name="ID_of_product" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Order_product_Order" FromRole="Order_product" ToRole="Order" />
+    <NavigationProperty Name="Stickers" Relationship="Self.FK_Order_product_Stickers" FromRole="Order_product" ToRole="Stickers" />
+    <NavigationProperty Name="Order1" Relationship="Model.FK_Order_product_Order1" FromRole="Order_product" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Stickers">
+    <Key>
+      <PropertyRef Name="ID_of_product" />
+    </Key>
+    <Property Name="ID_of_product" Type="Int32" Nullable="false" />
+    <Property Name="Product" Type="String" MaxLength="35" FixedLength="true" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="true" Unicode="false" />
+    <Property Name="Price" Type="Int32" />
+    <NavigationProperty Name="Order_product" Relationship="Self.FK_Order_product_Stickers" FromRole="Stickers" ToRole="Order_product" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID_of_user" />
+    </Key>
+    <Property Name="ID_of_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Middle_name" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Date_of_birth" Type="DateTime" Precision="0" />
+    <Property Name="Locality" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+    <Property Name="Number_phone" Type="Int32" />
+    <Property Name="E_mail" Type="String" MaxLength="80" FixedLength="true" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Role" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Order_Users" FromRole="Users" ToRole="Order" />
+    <Property Name="Middle_name1" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Date_of_birth1" Type="DateTime" Precision="0" />
+    <Property Name="Number_phone1" Type="Int32" />
+    <Property Name="E_mail1" Type="String" MaxLength="80" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Order1" Relationship="Model.FK_Order_Users1" FromRole="Users" ToRole="Order" />
+  </EntityType>
+  <Association Name="FK_Order_Delivery">
+    <End Role="Delivery" Type="Self.Delivery" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Delivery">
+        <PropertyRef Name="ID_of_delivery" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ID_of_delivery" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID_of_user" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ID_of_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_product_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+    <End Role="Order_product" Type="Self.Order_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="ID_of_order" />
+      </Principal>
+      <Dependent Role="Order_product">
+        <PropertyRef Name="ID_of_order" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_product_Stickers">
+    <End Role="Stickers" Type="Self.Stickers" Multiplicity="0..1" />
+    <End Role="Order_product" Type="Self.Order_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stickers">
+        <PropertyRef Name="ID_of_product" />
+      </Principal>
+      <Dependent Role="Order_product">
+        <PropertyRef Name="ID_of_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Online_sticker_storeEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Delivery" EntityType="Self.Delivery" />
+    <EntitySet Name="Order" EntityType="Self.Order" />
+    <EntitySet Name="Order_product" EntityType="Self.Order_product" />
+    <EntitySet Name="Stickers" EntityType="Self.Stickers" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK_Order_Delivery" Association="Self.FK_Order_Delivery">
+      <End Role="Delivery" EntitySet="Delivery" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Users" Association="Self.FK_Order_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_product_Order" Association="Self.FK_Order_product_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Order_product" EntitySet="Order_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_product_Stickers" Association="Self.FK_Order_product_Stickers">
+      <End Role="Stickers" EntitySet="Stickers" />
+      <End Role="Order_product" EntitySet="Order_product" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(Model.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(Model.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <AssociationSet Name="FK_Order_Delivery1" Association="Model.FK_Order_Delivery1">
+      <End Role="Delivery" EntitySet="Delivery" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Users1" Association="Model.FK_Order_Users1">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_product_Order1" Association="Model.FK_Order_product_Order1">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Order_product" EntitySet="Order_product" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <Association Name="FK_Order_Delivery1">
+    <End Type="Model.Delivery" Role="Delivery" Multiplicity="0..1" />
+    <End Type="Model.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Delivery">
+        <PropertyRef Name="ID_of_delivery" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ID_of_delivery1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Users1">
+    <End Type="Model.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="Model.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID_of_user" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ID_of_user1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_product_Order1">
+    <End Type="Model.Order" Role="Order" Multiplicity="0..1" />
+    <End Type="Model.Order_product" Role="Order_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="ID_of_order1" />
+      </Principal>
+      <Dependent Role="Order_product">
+        <PropertyRef Name="ID_of_order" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

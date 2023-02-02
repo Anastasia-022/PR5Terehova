@@ -1,0 +1,16 @@
+C:\Users\peach\source\repos\Antipina_OlnineStickerStore\Users\obj\Debug\Users.csproj.AssemblyReference.cache
+C:\Users\peach\source\repos\Antipina_OlnineStickerStore\Users\obj\Debug\Users.csproj.SuggestedBindingRedirects.cache
+C:\Users\peach\source\repos\Antipina_OlnineStickerStore\Users\obj\Debug\Users.csproj.CoreCompileInputs.cache
+C:\Users\peach\source\repos\Antipina_OlnineStickerStore\Users\bin\Debug\Users.exe.config
+C:\Users\peach\source\repos\Antipina_OlnineStickerStore\Users\bin\Debug\Users.exe
+C:\Users\peach\source\repos\Antipina_OlnineStickerStore\Users\bin\Debug\Users.pdb
+C:\Users\peach\source\repos\Antipina_OlnineStickerStore\Users\bin\Debug\EntityFramework.dll
+C:\Users\peach\source\repos\Antipina_OlnineStickerStore\Users\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\peach\source\repos\Antipina_OlnineStickerStore\Users\bin\Debug\HashPasswords.dll
+C:\Users\peach\source\repos\Antipina_OlnineStickerStore\Users\bin\Debug\HashPasswords.pdb
+C:\Users\peach\source\repos\Antipina_OlnineStickerStore\Users\bin\Debug\EntityFramework.xml
+C:\Users\peach\source\repos\Antipina_OlnineStickerStore\Users\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\peach\source\repos\Antipina_OlnineStickerStore\Users\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\peach\source\repos\Antipina_OlnineStickerStore\Users\obj\Debug\Users.csproj.CopyComplete
+C:\Users\peach\source\repos\Antipina_OlnineStickerStore\Users\obj\Debug\Users.exe
+C:\Users\peach\source\repos\Antipina_OlnineStickerStore\Users\obj\Debug\Users.pdb

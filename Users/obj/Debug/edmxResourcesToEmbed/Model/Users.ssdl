@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Delivery">
+    <Key>
+      <PropertyRef Name="ID of delivery" />
+    </Key>
+    <Property Name="ID of delivery" Type="int" Nullable="false" />
+    <Property Name="Type of delivery" Type="char" MaxLength="15" />
+    <Property Name="Dilivery time" Type="char" MaxLength="8" />
+    <Property Name="Cost" Type="money" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="ID of order" />
+    </Key>
+    <Property Name="ID of order" Type="int" Nullable="false" />
+    <Property Name="ID of user" Type="int" />
+    <Property Name="Type of payment" Type="char" MaxLength="15" />
+    <Property Name="ID of delivery" Type="int" />
+    <Property Name="Order date" Type="date" />
+    <Property Name="Cost of order" Type="int" />
+    <Property Name="Order status" Type="char" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Order-product">
+    <Key>
+      <PropertyRef Name="ID of ordered product" />
+    </Key>
+    <Property Name="ID of ordered product" Type="int" Nullable="false" />
+    <Property Name="ID of order" Type="int" />
+    <Property Name="ID of product" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Cost" Type="money" />
+  </EntityType>
+  <EntityType Name="Stickers">
+    <Key>
+      <PropertyRef Name="ID of product" />
+    </Key>
+    <Property Name="ID of product" Type="int" Nullable="false" />
+    <Property Name="Product" Type="char" MaxLength="35" />
+    <Property Name="Name" Type="char" MaxLength="50" />
+    <Property Name="Description" Type="char" MaxLength="250" />
+    <Property Name="Price" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID of user" />
+    </Key>
+    <Property Name="ID of user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="char" MaxLength="30" />
+    <Property Name="Name" Type="char" MaxLength="20" />
+    <Property Name="Middle name" Type="char" MaxLength="20" />
+    <Property Name="Date of birth" Type="date" />
+    <Property Name="Locality" Type="char" MaxLength="40" />
+    <Property Name="Address" Type="char" MaxLength="40" />
+    <Property Name="Number phone" Type="int" />
+    <Property Name="E-mail" Type="char" MaxLength="80" />
+    <Property Name="Password" Type="varchar(max)" />
+    <Property Name="Login" Type="varchar(max)" />
+  </EntityType>
+  <Association Name="FK_Order_Delivery">
+    <End Role="Delivery" Type="Self.Delivery" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Delivery">
+        <PropertyRef Name="ID of delivery" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ID of delivery" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID of user" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ID of user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order-product_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+    <End Role="Order-product" Type="Self.Order-product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="ID of order" />
+      </Principal>
+      <Dependent Role="Order-product">
+        <PropertyRef Name="ID of order" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order-product_Stickers">
+    <End Role="Stickers" Type="Self.Stickers" Multiplicity="0..1" />
+    <End Role="Order-product" Type="Self.Order-product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stickers">
+        <PropertyRef Name="ID of product" />
+      </Principal>
+      <Dependent Role="Order-product">
+        <PropertyRef Name="ID of product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ModelContainer">
+    <EntitySet Name="Delivery" EntityType="Self.Delivery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order-product" EntityType="Self.Order-product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stickers" EntityType="Self.Stickers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Order_Delivery" Association="Self.FK_Order_Delivery">
+      <End Role="Delivery" EntitySet="Delivery" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Users" Association="Self.FK_Order_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order-product_Order" Association="Self.FK_Order-product_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Order-product" EntitySet="Order-product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order-product_Stickers" Association="Self.FK_Order-product_Stickers">
+      <End Role="Stickers" EntitySet="Stickers" />
+      <End Role="Order-product" EntitySet="Order-product" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "08138a9e-5df3-4004-ba02-6c2588ebc717": {
+      "ProjectGuid": "08138a9e-5df3-4004-ba02-6c2588ebc717",
+      "DisplayName": "Antipina_OlnineStickerStore",
+      "ColorIndex": 0
+    },
+    "691a6615-7d23-447e-a7db-7f170ceb69e6": {
+      "ProjectGuid": "691a6615-7d23-447e-a7db-7f170ceb69e6",
+      "DisplayName": "HashPasswords",
+      "ColorIndex": 1
+    },
+    "e8f574a8-614f-4677-8100-5500eb2fae1f": {
+      "ProjectGuid": "e8f574a8-614f-4677-8100-5500eb2fae1f",
+      "DisplayName": "Users",
+      "ColorIndex": 2
+    },
+    "cc684dbe-3e8b-4ab9-9561-29cd584a8024": {
+      "ProjectGuid": "cc684dbe-3e8b-4ab9-9561-29cd584a8024",
+      "DisplayName": "UnitTestProject1",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

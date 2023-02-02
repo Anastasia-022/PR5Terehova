@@ -1,0 +1,45 @@
+﻿<Window x:Class="Antipina_OlnineStickerStore.View.Windows.MenuSystem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Antipina_OlnineStickerStore.View.Windows"
+        mc:Ignorable="d"
+        Title="Меню администратора" Height="450" Width="800" MinHeight="450" MinWidth="800" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen" >
+    <Grid Background="#FFE0D2D5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="150" MaxWidth="300" Width="200"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3" HorizontalAlignment="Center"
+                      VerticalAlignment="Stretch"/>
+        <StackPanel Grid.Column="0" Background="#FFC6818D">
+            <Button Name="btnListStickers" Height="50" Width="150" Content="Стикеры" HorizontalAlignment="Center"
+                    VerticalAlignment="Center" Margin=" 0,10,0,0" Click=" btnListStickers_Click" Background="#FFA06972" BorderBrush="#FF442E46" FontFamily="Arial Black" FontSize="18" FontWeight="Normal">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button Name="btnListUsers" Height="50" Width="150" Content="Пользователи" HorizontalAlignment="Center"
+                    VerticalAlignment="Center" Margin=" 0,10,0,0" Click=" btnListUsers_Click" BorderBrush="#FF442E46" Background="#FFA06972" FontFamily="Arial Black" FontSize="18">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button Name="btnListOrder" Height="50" Width="150" Content="Заказы" HorizontalAlignment="Center"
+                    VerticalAlignment="Center" Margin="0,10,0,0" Click="btnListOrder_Click" BorderBrush="#FF442E46" Background="#FFA06972" FontSize="18" FontFamily="Arial Black">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button Name="btnListOrder_product" Height="50" Width="150" Content="Доставка" HorizontalAlignment="Center"
+                    VerticalAlignment="Center" Margin="0,10,0,0" Click="btnListOrder_product_Click" BorderBrush="#FF442E46" Background="#FFA06972" FontSize="18" FontFamily="Arial Black">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+        </StackPanel>
+        <Frame x:Name="MainFrame" Grid.Column="3" BorderBrush="Black" BorderThickness="2" Margin="5,5,5,5" Background="#FFDECECE"></Frame>
+    </Grid>
+</Window>
